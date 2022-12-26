@@ -13,12 +13,42 @@
   <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap" rel="stylesheet">
 
   <title>React App</title>
+  <script type="text/javascript">
+  window.SUPA_PROXY_URL = 'https://proxy.trysuperapi.com';
+
+
+  const server_list = [
+    'https://in1.trysuperapi.com',
+    'https://use.trysuperapi.com',
+    'https://usw.trysuperapi.com',
+    'https://blr.trysuperapi.com',
+    'https://del.trysuperapi.com'
+  ];
+
+
+  var evaluate = function() {
+    var waiting = true;
+
+    for (var i=0; i<server_list.length; i++) {
+      fetch(server_list[i] + '/ready').then(function(resp) {
+        if(waiting === true) {
+          window.SUPA_PROXY_URL = resp.url.replace('/ready','');
+          waiting=false;
+        }
+      });
+    } 
+  }
+
+  evaluate();
+
+
+
+  </script>
 </head>
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
-
 </body>
 
 </html>
