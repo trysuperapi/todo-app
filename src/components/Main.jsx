@@ -30,8 +30,8 @@ function Main({ title, source, API_URL, toRefresh }) {
     const pulledTasks = [];
     for (var i = 0; i < 5; i++) {
       let _pulledTask = _pulledTasks[i];
-      let task = { id: _pulledTask.id, note: _pulledTask.description, project: _pulledTask.project_name, complated: false };
-      pulledTasks.push(task);
+      //let task = { id: _pulledTask.id, note: _pulledTask.description, project: _pulledTask.project_name, complated: false };
+      pulledTasks.push(_pulledTask);
     }
     return pulledTasks;
   }
@@ -77,7 +77,7 @@ function Main({ title, source, API_URL, toRefresh }) {
                   onClick={() => markComplated(item.id)}
                   className={item.complated ? "fixed" : ""}
                 >
-                  {item.note} ({item.project})
+                  {item.description} ({item.project.name}, {item.project.client.name})
                 </li>
               ))}
             </ul>
