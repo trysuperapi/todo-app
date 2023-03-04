@@ -30,12 +30,14 @@ div {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
 }
 
 button {
+  border-radius: 2rem 2rem;
+  background-color: white;
   margin-top: 10px;
-  width: 100px;
+  width: 150px;
   height: 40px;
   font-size: large;
 }
@@ -164,18 +166,18 @@ ul li{
 }
 
 .date{
-    display: flex;
-    justify-content:space-evenly;
-    flex-wrap: wrap;
-    font-size: 1.5rem;
+  display: flex;
+  justify-content:space-evenly;
+  flex-wrap: wrap;
+  font-size: 1.5rem;
 
 }
 .date span{
-    width: 7rem;
+  width: 7rem;
 }
 
 @media screen and (max-width: 470px) {
   .container {
       width: 95%;
-  }
+    }
 }

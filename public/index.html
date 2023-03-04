@@ -14,55 +14,25 @@
 
   <title>Super API Demo</title>
   <script type="text/javascript">
-  window.SUPA_PROXY_URL = 'https://proxy.superapi.cloud';
+  window.SUPA_PROXY_URL = 'https://pop-iowa.superapi.cloud';
 
   const server_list = [
-    'https://pop-oregon.superapi.cloud',
-    'https://pop-south-carolina.superapi.cloud',
-    'https://pop-singapore.superapi.cloud',
-    'https://pop-n-virginia.superapi.cloud',
-    'https://pop-sydney.superapi.cloud',
-    'https://pop-london.superapi.cloud',
-    'https://pop-frankfurt.superapi.cloud',
-    'https://pop-sao-paulo.superapi.cloud',
-    'https://pop-mumbai.superapi.cloud',
-    'https://pop-montreal.superapi.cloud',
-    'https://pop-netherlands.superapi.cloud',
-    'https://pop-los-angeles.superapi.cloud',
-    'https://pop-hong-kong.superapi.cloud',
-    'https://pop-zurich.superapi.cloud',
-    'https://pop-seoul.superapi.cloud',
-    'https://pop-delhi.superapi.cloud',
-    'https://pop-santiago.superapi.cloud',
-    'https://pop-paris.superapi.cloud',
-    'https://pop-madrid.superapi.cloud',
-    'https://pop-dallas.superapi.cloud',
-    'https://pop-tel-aviv.superapi.cloud',
-    'https://pop-hyd.superapi.cloud',
-    'https://pop-cape-town.superapi.cloud',
-    'https://pop-bahrain.superapi.cloud',
-    'https://pop-uae.superapi.cloud',
-    'https://pop-sf.superapi.cloud',
-    'https://pop-osaka.superapi.cloud',
-    'https://pop-finland.superapi.cloud',
-    'https://pop-iowa.superapi.cloud',
-    'https://pop-blr.superapi.cloud'
   ]
 
-  var evaluate = function() {
-    var waiting = true;
+  // var evaluate = function() {
+  //   var waiting = true;
 
-    for (var i=0; i<server_list.length; i++) {
-      fetch(server_list[i] + '/ready').then(function(resp) {
-        if(waiting === true) {
-          window.SUPA_PROXY_URL = resp.url.replace('/ready','');
-          waiting=false;
-        }
-      });
-    } 
-  }
+  //   for (var i=0; i<server_list.length; i++) {
+  //     fetch(server_list[i] + '/ready').then(function(resp) {
+  //       if(waiting === true) {
+  //         window.SUPA_PROXY_URL = resp.url.replace('/ready','');
+  //         waiting=false;
+  //       }
+  //     });
+  //   } 
+  // }
 
-  evaluate();
+  // evaluate();
 
   </script>
 </head>

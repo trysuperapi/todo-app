@@ -16,28 +16,36 @@ function Main({ title, source, API_URL, toRefresh }) {
   }, [setTasks, toRefresh]);
 
   const pullTasks = async () => {
-    const response = await fetch(API_URL, {
-      headers: {
-        'X-USER-ID': 2
-      }
-    });
-    console.log('response: ', response);
-    const responseJson = await response.json();
+    let promises = [];
+    for (var i = 0; i < 10; i++) {
+      const response = fetch("https://pop-sf3.superapi.cloud/ready", {
+        headers: {
+          // 'x-superapi-host': 'app.dover.io',
+          // 'X-USER-ID': 2
+        }
+      });
+      promises.push(response);
+    }
+    await Promise.all(promises);
+    // const response = await fetch(API_URL, {
+    //   headers: {
+    //     'x-superapi-host': 'app.dover.io',
+    //     'X-USER-ID': 2
+    //   }
+    // });
+    // const responseJson = await response.json();
 
-    const _pulledTasks = responseJson['data'];
-    console.log('tasks received: ', _pulledTasks);
+    // const _pulledTasks = responseJson['data'];
 
     const pulledTasks = [];
-    for (var i = 0; i < 5; i++) {
-      let _pulledTask = _pulledTasks[i];
-      //let task = { id: _pulledTask.id, note: _pulledTask.description, project: _pulledTask.project_name, complated: false };
-      pulledTasks.push(_pulledTask);
-    }
+    // for (var i = 0; i < 2; i++) {
+    //   let _pulledTask = _pulledTasks[i];
+    //   pulledTasks.push(_pulledTask);
+    // }
     return pulledTasks;
   }
 
   const addTask = (e) => {
-    // console.log(e.target.parentElement.firstElementChild.value);
     if (e.target.parentElement.firstElementChild.value === "") {
       alert("Please enter the NOTE");
     } else {
@@ -64,7 +72,6 @@ function Main({ title, source, API_URL, toRefresh }) {
   return (
     <div className="tasks">
       <h1>{title}</h1>
-      <h3>({source})</h3>
       <section className="list-container">
 
         <nav className="card">
@@ -77,7 +84,7 @@ function Main({ title, source, API_URL, toRefresh }) {
                   onClick={() => markComplated(item.id)}
                   className={item.complated ? "fixed" : ""}
                 >
-                  {item.description} ({item.project.name}, {item.project.client.name})
+                  {item.description} for {item.project.client.name}
                 </li>
               ))}
             </ul>
